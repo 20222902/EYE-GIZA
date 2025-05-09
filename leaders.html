@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Administrative Structure - EYE</title>
+    
+    <!-- Meta Tags for Social Media Sharing -->
+    <meta property="og:title" content=" Administrative Structure - EYE">
+    <meta property="og:description" content="تعرف على الهيكل الإداري لمنظمة EYE الطلابية وفرق العمل المتميزة">
+    <meta property="og:image" content="https://yourwebsite.com/logo.PNG">
+    <meta property="og:url" content="https://yourwebsite.com/leaders.html">
+    <meta property="og:type" content="website">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content=" Administrative Structure - EYE">
+    <meta name="twitter:description" content="تعرف على الهيكل الإداري لمنظمة EYE الطلابية وفرق العمل المتميزة">
+    <meta name="twitter:image" content="https://yourwebsite.com/logo.PNG">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="logo.PNG" type="image/png">
+    
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Google Fonts (Cairo) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #1E3A8A;
+            color: #ffffff;
+            perspective: 800px;
+            overflow-x: hidden;
+            padding-top: 180px; /* Increased for navbar and logo */
+            padding-bottom: 80px;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 160px;
+                padding-bottom: 70px;
+            }
+            
+            .navbar {
+                min-height: 70px;
+            }
+            
+            .logo-img {
+                height: 50px;
+            }
+            
+            .circle {
+                width: 80px;
+                height: 80px;
+                margin: 5px;
+            }
+            
+            .row {
+                gap: 15px;
+                margin: 15px 0;
+                flex-wrap: wrap;
+            }
+            
+            .member-info {
+                font-size: 12px;
+                max-width: 100px;
+                bottom: -40px;
+            }
+            
+            footer {
+                padding: 1rem 0;
+            }
+        }
+        
+        /* Mobile menu styles */
+        .mobile-menu-button {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-button {
+                display: block;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #1E3A8A;
+                flex-direction: column;
+                padding: 1rem;
+                border-bottom: 1px solid #3B82F6;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-link {
+                padding: 0.75rem;
+                text-align: center;
+            }
+        }
+
+        .circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.1);
+            position: relative;
+            margin: 10px;
+            transform-style: preserve-3d;
+            animation: moveCircle var(--duration, 4s) infinite alternate ease-in-out;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+        }
+        .circle img {
+            width: 80%;
+            height: 80%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        @keyframes moveCircle {
+            0% { transform: translate(var(--x, 0px), var(--y, 0px)) scale(1); }
+            100% { transform: translate(var(--xEnd, 50px), var(--yEnd, 50px)) scale(1.1); }
+        }
+        .circle:hover {
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+        .row {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 30px 0;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            padding: 30px 20px;
+        }
+        .member-info {
+            position: absolute;
+            bottom: -50px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 8px 15px;
+            border-radius: 8px;
+            font-size: 16px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            width: max-content;
+            max-width: 150px;
+            text-align: center;
+        }
+        .circle:hover .member-info {
+            opacity: 1;
+        }
+        
+        /* Logo Styles */
+        .logo-img {
+            height: 80px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+        .logo-img:hover {
+            transform: scale(1.1) rotate(15deg);
+        }
+        
+        /* Navbar styles */
+        .navbar {
+            min-height: 100px;
+            background-color: #1E3A8A;
+            border-bottom: 1px solid #3B82F6;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+        
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .brand-text {
+            font-size: 1.8rem;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+        
+        .nav-link {
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+            color: #EFF6FF;
+        }
+        .nav-link:hover {
+            background-color: rgba(59, 130, 246, 0.2);
+            border-radius: 8px;
+        }
+        
+        .nav-link.active {
+            background-color: rgba(59, 130, 246, 0.5);
+            border-radius: 8px;
+        }
+        
+        /* Footer styles */
+        footer {
+            background-color: #1E3A8A;
+            border-top: 1px solid #3B82F6;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            padding: 0.5rem;
+            z-index: 100;
+        }
+        
+        /* Hierarchy styling */
+        .coordinator-row {
+            margin-bottom: 50px;
+        }
+        
+        .vice-row {
+            margin-bottom: 40px;
+        }
+        
+        .head-row {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Navigation -->
+    <nav class="navbar text-white shadow-lg">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <div class="flex items-center navbar-brand">
+                <img src="logo.PNG" alt="EYE Logo" class="logo-img">
+                <span class="brand-text text-white"></span>
+            </div>
+            
+            <!-- Mobile menu button -->
+            <button class="mobile-menu-button md:hidden text-white focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+            
+            <!-- Desktop menu -->
+            <div class="nav-links hidden md:flex">
+                <a href="index.html" class="nav-link">EYE-GIZA</a>
+                <a href="leaders.html" class="nav-link active"> Administrative Structure</a>
+                <a href="events.html" class="nav-link">Events</a>
+                <a href="about.html" class="nav-link">About Us </a>
+                <a href="contact.html" class="nav-link">Contact Us </a>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div class="nav-links hidden md:hidden">
+            <a href="index.html" class="nav-link block">EYE-GIZA</a>
+            <a href="leaders.html" class="nav-link block active"> Administrative Structure</a>
+            <a href="events.html" class="nav-link block">Events</a>
+            <a href="about.html" class="nav-link block">About Us </a>
+            <a href="contact.html" class="nav-link block">Contact Us </a>
+        </div>
+    </nav>
+
+    <!-- Organizational Structure Section -->
+    <div class="container mx-auto">
+        <h1 class="text-3xl md:text-4xl font-bold mb-12 text-center"> Administrative Structure</h1>
+        <div class="container mx-auto">
+            <!-- Coordinator and Vice Coordinator in same row -->
+            <div class="row coordinator-row">
+                <div class="circle" style="--x: 5px; --y: -10px; --xEnd: -10px; --yEnd: 5px; --duration: 3s;">
+                    <img src="1.JPG" alt="Coordinator">
+                    <div class="member-info">Youssef Ali<br>Coordinator</div>
+                </div>
+                
+                <div class="circle" style="--x: -5px; --y: 10px; --xEnd: 10px; --yEnd: 5px; --duration: 3s;">
+                    <img src="2.JPG" alt="Vice Coordinator">
+                    <div class="member-info">Omar Atef<br>Vice Coordinator</div>
+                </div>
+            </div>
+            
+            <!-- Consultant alone below -->
+            <div class="row vice-row">
+                <div class="circle" style="--x: 10px; --y: -20px; --xEnd: -10px; --yEnd: 20px; --duration: 3s;">
+                    <img src="3.JPG" alt="Consultant">
+                    <div class="member-info">Israa Hisham<br>Consultant</div>
+                </div>
+            </div>
+            
+            <!-- HR Heads Row -->
+            <div class="row head-row">
+                <div class="circle" style="--x: 15px; --y: -30px; --xEnd: -15px; --yEnd: 30px; --duration: 5s;">
+                    <img src="4.JPG" alt="HR Head">
+                    <div class="member-info">Norhan Hany<br>Head HR</div>
+                </div>
+                
+                <div class="circle" style="--x: -15px; --y: 30px; --xEnd: 15px; --yEnd: -30px; --duration: 5s;">
+                    <img src="5.JPG" alt="HR Vice">
+                    <div class="member-info">Habiba Mohamed<br>Vice HR</div>
+                </div>
+            </div>
+            
+            <!-- OR Heads Row -->
+            <div class="row head-row">
+                <div class="circle" style="--x: 30px; --y: -10px; --xEnd: -30px; --yEnd: 10px; --duration: 4.5s;">
+                    <img src="6.JPG" alt="OR Head">
+                    <div class="member-info">Manar Mohamed<br>Head OR</div>
+                </div>
+                
+                <div class="circle" style="--x: -30px; --y: 10px; --xEnd: 30px; --yEnd: -10px; --duration: 4.5s;">
+                    <img src="7.JPG" alt="OR Vice">
+                    <div class="member-info">Noran Sherif<br>Vice OR</div>
+                </div>
+            </div>
+            
+            <!-- PR Heads Row -->
+            <div class="row head-row">
+                <div class="circle" style="--x: 20px; --y: -15px; --xEnd: -20px; --yEnd: 15px; --duration: 5.5s;">
+                    <img src="8.JPG" alt="PR Head">
+                    <div class="member-info">Nada Eldomady<br>Head PR</div>
+                </div>
+                
+                <div class="circle" style="--x: -20px; --y: 15px; --xEnd: 20px; --yEnd: -15px; --duration: 5.5s;">
+                    <img src="9.JPG" alt="PR Vice">
+                    <div class="member-info">Shereen Salah<br>Vice PR</div>
+                </div>
+            </div>
+            
+            <!-- SM Heads Row -->
+            <div class="row head-row">
+                <div class="circle" style="--x: 25px; --y: -25px; --xEnd: -25px; --yEnd: 25px; --duration: 4s;">
+                    <img src="10.JPG" alt="SM Head">
+                    <div class="member-info">Nour Bialy<br>Head SM</div>
+                </div>
+                
+                <div class="circle" style="--x: -20px; --y: 20px; --xEnd: 20px; --yEnd: -20px; --duration: 4.2s;">
+                    <img src="11.JPG" alt="SM Vice">
+                    <div class="member-info">Youssef Mahmoud<br>Vice SM</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-white">
+        <div class="container mx-auto flex flex-col items-center">
+            <img src="logo.PNG" alt="EYE Footer Logo" class="logo-img mb-2 md:mb-4" style="height: 60px;">
+            <p class="text-sm md:text-lg">&copy; 2025 EYE. جميع الحقوق محفوظة.</p>
+            <p class="text-xs md:text-sm text-blue-300 mt-1">تصميم بواسطة تيم الجيزة</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        document.querySelectorAll('.circle').forEach(circle => {
+            circle.addEventListener('click', function() {
+                const name = this.querySelector('.member-info').textContent.split('\n')[0];
+                alert(`تم النقر على: ${name}`);
+            });
+        });
+    </script>
+</body>
+</html>

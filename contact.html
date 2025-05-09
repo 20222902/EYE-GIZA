@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Contact Us - EYE</title>
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Google Fonts (Cairo) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #1E3A8A;
+            color: #ffffff;
+            overflow-x: hidden;
+            padding-top: 80px;
+            padding-bottom: 80px;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 70px;
+                padding-bottom: 70px;
+            }
+            
+            .navbar {
+                min-height: 70px;
+            }
+            
+            .logo-img {
+                height: 50px;
+            }
+            
+            .page-title {
+                font-size: 2rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+            
+            .social-icon {
+                font-size: 2rem;
+            }
+            
+            .social-icons-container {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .social-icon:not(:last-child)::after {
+                width: 15px;
+            }
+            
+            footer {
+                padding: 1rem 0;
+            }
+            
+            .footer-logo {
+                height: 50px;
+            }
+        }
+        
+        /* Logo Styles */
+        .logo-img {
+            height: 80px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+        .logo-img:hover {
+            transform: scale(1.1) rotate(15deg);
+        }
+        
+        /* Navbar styles */
+        .navbar {
+            min-height: 100px;
+            background-color: #1E3A8A;
+            border-bottom: 1px solid #3B82F6;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+        
+        /* Mobile menu styles */
+        .mobile-menu-button {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-button {
+                display: block;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #1E3A8A;
+                flex-direction: column;
+                padding: 1rem;
+                border-bottom: 1px solid #3B82F6;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-link {
+                padding: 0.75rem;
+                text-align: center;
+            }
+        }
+        
+        .nav-link {
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+            color: #EFF6FF;
+        }
+        .nav-link:hover {
+            background-color: rgba(59, 130, 246, 0.2);
+            border-radius: 8px;
+        }
+        
+        .nav-link.active {
+            background-color: rgba(59, 130, 246, 0.5);
+            border-radius: 8px;
+        }
+        
+        /* Main content */
+        main {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Social Icons Animation */
+        .social-icons-container {
+            display: flex;
+            gap: 25px;
+        }
+        .social-icon {
+            font-size: 3rem;
+            color: #93C5FD;
+            position: relative;
+            display: inline-block;
+            animation: bounce 1.5s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        /* Stagger the animation */
+        .social-icon:nth-child(1) { animation-delay: 0.1s; }
+        .social-icon:nth-child(2) { animation-delay: 0.2s; }
+        .social-icon:nth-child(3) { animation-delay: 0.3s; }
+        .social-icon:nth-child(4) { animation-delay: 0.4s; }
+        .social-icon:nth-child(5) { animation-delay: 0.5s; }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+            }
+            50% {
+                transform: translateY(-20px) scale(1.1);
+            }
+        }
+
+        .social-icon:hover {
+            animation: none;
+            transform: scale(1.3) rotate(10deg);
+            color: #FFFFFF;
+            text-shadow: 0 0 15px rgba(147, 197, 253, 0.8);
+        }
+
+        /* Connecting lines with animation */
+        .social-icon:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            width: 25px;
+            height: 2px;
+            background-color: rgba(147, 197, 253, 0.5);
+            transform: translateY(-50%);
+            z-index: -1;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.5;
+                width: 25px;
+            }
+            50% {
+                opacity: 1;
+                width: 30px;
+            }
+        }
+        
+        /* Title animation */
+        .page-title {
+            animation: float 3s ease-in-out infinite;
+            font-size: 2.5rem;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        .subtitle {
+            animation: fadeInOut 4s ease-in-out infinite;
+            font-size: 1.25rem;
+        }
+        
+        @keyframes fadeInOut {
+            0%, 100% {
+                opacity: 0.7;
+            }
+            50% {
+                opacity: 1;
+                text-shadow: 0 0 10px rgba(147, 197, 253, 0.5);
+            }
+        }
+        
+        /* Footer styles */
+        footer {
+            background-color: #1E3A8A;
+            border-top: 1px solid #3B82F6;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="navbar text-white p-4 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="logo.PNG" alt="EYE Logo" class="logo-img mr-4">
+                <a href="index.html" class="text-2xl font-bold text-white hidden md:block"></a>
+            </div>
+            
+            <!-- Mobile menu button -->
+            <button class="mobile-menu-button md:hidden text-white focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+            
+            <!-- Desktop menu -->
+            <div class="nav-links hidden md:flex">
+                <a href="index.html" class="nav-link">EYE-GIZA</a>
+                <a href="leaders.html" class="nav-link"> Administrative Structure</a>
+                <a href="events.html" class="nav-link">Events</a>
+                <a href="about.html" class="nav-link">About Us </a>
+                <a href="contact.html" class="nav-link active">Contact Us </a>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div class="nav-links hidden md:hidden">
+            <a href="index.html" class="nav-link block">EYE-GIZA</a>
+            <a href="leaders.html" class="nav-link block"> Administrative Structure</a>
+            <a href="events.html" class="nav-link block">Events</a>
+            <a href="about.html" class="nav-link block">About Us </a>
+            <a href="contact.html" class="nav-link block active">Contact Us </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="py-8 md:py-12 px-4">
+        <div class="text-center">
+            <h1 class="page-title text-3xl md:text-4xl font-bold mb-6 md:mb-10 text-white">Contact Us </h1>
+            <p class="subtitle text-base md:text-lg mb-8 md:mb-12 text-blue-200">تابعنا على وسائل التواصل الاجتماعي</p>
+            <div class="social-icons-container">
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/almasrywnalshabab?igsh=bjhtMWtjNTZ4ZWcz" target="_blank" class="social-icon" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                
+                <!-- Facebook -->
+                <a href="https://www.facebook.com/share/16SvmqFxVP/?mibextid=wwXIfr" target="_blank" class="social-icon" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                
+                <!-- TikTok -->
+                <a href="https://www.tiktok.com/@almsrywnalshbabb?_t=ZS-8vo5lzL0rLx&_r=1" target="_blank" class="social-icon" aria-label="TikTok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/company/eye-ministry-of-youth-and-sports-of-egypt/" target="_blank" class="social-icon" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                
+                <!-- Twitter/X -->
+                <a href="https://x.com/almsrywnalshbab?s=21" target="_blank" class="social-icon" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-white py-4 md:py-8 px-4">
+        <div class="container mx-auto flex flex-col items-center">
+            <img src="logo.PNG" alt="EYE Logo" class="logo-img mb-2 md:mb-4 footer-logo">
+            <p class="text-xs md:text-sm text-blue-100">&copy; 2025 EYE. جميع الحقوق محفوظة.</p>
+            <p class="text-xs text-blue-300 mt-1">تصميم بواسطة تيم الجيزة</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
